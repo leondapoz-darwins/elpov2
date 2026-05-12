@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -240,19 +240,19 @@
 <body>
   <header>
     <img src="assets/logo.jpg" alt="ELPO" />
-    <span class="lang">EN</span>
+    <span class="lang">DE</span>
   </header>
 
   <main id="main">
     <form class="gate" id="gate" autocomplete="off">
-      <span class="badge">Restricted Preview</span>
-      <h1>Enter password</h1>
-      <p>This page is part of an internal preview. Please enter the password to continue.</p>
+      <span class="badge">Gesch&uuml;tzte Vorschau</span>
+      <h1>Passwort eingeben</h1>
+      <p>Diese Seite ist Teil einer internen Vorschau. Bitte geben Sie das Passwort ein, um fortzufahren.</p>
       <div class="field">
-        <label for="pw">Password</label>
+        <label for="pw">Passwort</label>
         <input id="pw" name="pw" type="password" autocomplete="current-password" autofocus required />
       </div>
-      <button type="submit" id="submit">Unlock</button>
+      <button type="submit" id="submit">Entsperren</button>
       <div class="error" id="error" role="alert" aria-live="polite"></div>
     </form>
   </main>
@@ -267,9 +267,9 @@
     // Encrypted protected content. Replace this block by re-running:
     //   node tools/encrypt.js "<new-password>" content/protected.html
     const PAYLOAD = {
-      "salt": "cBOfp4Bfmday7JgVU+wtSg==",
-      "iv": "PtXRDEKXidCcjLz1",
-      "ct": "DXLT8NLe49mu/IrKZwZzNOoR+ZRdlWGGRWq0gxLyFeORdMcW+lM9EDq2C2anxW4ieIE7WOMcLMbWTXJl4jtRsKH+3r4MSlK7K9zMfgJPkD7M2SBYDNKZOzSoIWkdYVVVMH1S+YKb3voRLDAaPiv4EmDSZkTfPFlFjPycfEuvDaKJD3IMe84nuwGyePN1n+VxZ0udn09vfBUVEt3sKROmHS5cX0Ad7oACq9QpwO86LiqurYm03obJZu6bKmfiqFRLpEwQ34gy/Y0Fu/IyBCsDr2kJBqUk4meRQAeh92IvgIeLJgqooMPinEOoNNFS2lfAH9gLnARRhAWtLxroJxj4rXUF553GhRto7jDxdiQCFbxGJeDIM6sNuXSTJDWGWEYws9bDEWhXoSO6q2vmZGZrmYtu55eI8JFuOpuhDpPdvwiWvx8NrSJpMczJYOHvM7XMv4Qgxi+frcdADYfsq0oh9Z24554FBdymUnQ6jrvVuPkzPwFT+NILSIlMNSzvREMpGvjsWOOAicX6xIHHyOryUpkQL9PlNDYOyJf0A0MTrGqcZx6qCcClUqvv4/af4maUWi+KAAa3uxhw+jMzA1wt+umMPPLaxZql1IywredQGAC0BhV+TfW5FQWq2R1kMiciNEGNqBFRWXiZZtdPoHwI8brzcHZ4cUAd584YqbYHhalgEAeiV8I6BPRxDw==",
+      "salt": "I2nw22upIZdGpZ0QgWfo/A==",
+      "iv": "FyXPDpGNzwK8PGRs",
+      "ct": "lv5RqG/ijTkNcYbZpgPoEMI+A3ZsBZNj7mDGrMjGg+HAhkQVNjDpN0lkGL/Cwc069QAjXnGzKkNdctw2KxPeBphvf/uEDZ/vhZMi20QtwRw+07yxzFNM8VUnXG+3SyZVu1p4Ktd6om/ynBHCJ0/IdmVNSK/BNfA0KiGX7OuPwuxJg2xS3hhBF/oDHBmbTZ+ABR8CEV1Xse8QsjU/8JNaLQOqZPBGr9kqwi/l44yft21o2X/7DPpnHF0DFfnMGgCzCCThMb9r+mJxCx0JQXPwkqxZ4BPNPlYh+x3cgZp2X+YO8D3ZxJAvTgEngqEFbzyvRYX4J/oKq7bjtJvv5F21GNr1mkC86qkEveESFVqD8flfUr3OlXmRno6GINwGk/1+Znglt8o/DmMCOHGfWdgscP3+8L5mwOuXN3dARob9/wf6fo9uqEFBOTBcfBtkxpQMW2dXBrNM6VpF9igXdFZMXY1pyTa37UBUd2KJo9aQzrHxuPZePtsENPzycSGcezV6O1zTuckqAlssWz5wzQ2x21FyPlLmQ/lWh85ne/7ZV4GL+H0J2mmHevAw9Iqqwl64knCUmDpqx7C7PBFuIBtcHEv8IA4h/TNPcsQZ2dQHeddVmYvGhBgCR/E2wKRO4xi2pk7tPD2TyEbfzT4mbWHDPNcrw8J7WtBAWrSEtQnUDhPnoab85FLgY4OWExinmc1sJmrv/XxMnbVc4y2d9sUuFxFgX92Q",
       "iter": 200000
     };
 
@@ -310,15 +310,15 @@
       e.preventDefault();
       errEl.textContent = '';
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Unlocking…';
+      submitBtn.textContent = 'Wird entsperrt…';
       const pw = document.getElementById('pw').value;
       try {
         const html = await tryUnlock(pw);
         main.innerHTML = html;
       } catch (err) {
-        errEl.textContent = 'Incorrect password. Please try again.';
+        errEl.textContent = 'Falsches Passwort. Bitte erneut versuchen.';
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Unlock';
+        submitBtn.textContent = 'Entsperren';
         document.getElementById('pw').focus();
         document.getElementById('pw').select();
       }
