@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css" />
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
-  <style>
+  <style id="gate-styles">
     :root {
       --brand: #0064a8;
       --brand-dark: #004f86;
@@ -239,6 +239,9 @@
       const pw = document.getElementById('pw').value;
       try {
         const html = await tryUnlock(pw);
+        // Remove gate-only styles so they don't cascade into the landing page.
+        const gateStyles = document.getElementById('gate-styles');
+        if (gateStyles) gateStyles.remove();
         // Replace the entire body content with the decrypted landing page.
         document.body.innerHTML = html;
         // Re-execute any inline <script> tags (innerHTML inserts them inert).
